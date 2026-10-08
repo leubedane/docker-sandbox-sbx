@@ -37,6 +37,10 @@ permissions:
     - "localhost:64342"
     - "127.0.0.1:64342"
     - "host.docker.internal:64342"
+    # backend api
+    - "localhost:9000"
+    - "127.0.0.1:9000"
+    - "host.docker.internal:9000"
     # Docker Desktop Kubernetes (kube-apiserver, Host via Docker Desktop DNS)
     - "localhost:6443"
     - "127.0.0.1:6443"
@@ -82,6 +86,8 @@ permissions:
     - add-skill.vercel.sh
     # Web search (last resort, allow-list for websearch/webfetch provider)
     - "*.exa.ai"
+    - playwright.download.prss.microsoft.com
+    - cdn.playwright.dev
 
 credentials:
   - service: deepseek
@@ -109,10 +115,6 @@ setup:
       description: Install ctx7 (docs-as-a-service CLI)
     - command: "npm_config_bin_links=true npm install -g skills"
       description: Install skills (vercel-labs CLI)
-    - command: "npm_config_bin_links=true npm install -g prettier"
-      description: Install prettier
-    - command: "npm_config_bin_links=true npm install -g renovate"
-      description: Install renovate
     - command: "apt-get update && apt-get install -y jq python3 python3-pip python3-yaml"
       description: Install apt packages (jq, python3, pip, python3-yaml)
     - command: "bash /home/agent/.local/bin/install-tooling.sh shfmt"
