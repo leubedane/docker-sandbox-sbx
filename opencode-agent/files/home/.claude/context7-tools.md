@@ -12,12 +12,6 @@ angegeben.
 | IntelliJ Plugin SDK | `/jetbrains/intellij-sdk-docs` | https://github.com/JetBrains/intellij-sdk-docs |
 | IntelliJ Platform | `/jetbrains/intellij-community` | https://github.com/JetBrains/intellij-community |
 
-## Skills
-
-| Tool | ctx7 Library-ID | GitHub / URL |
-|---|---|---|
-| Skills CLI (vercel-labs) | `/vercel-labs/skills` | https://github.com/vercel-labs/skills |
-
 ## Java / Spring / Apache
 
 | Tool | ctx7 Library-ID | GitHub / URL |

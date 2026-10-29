@@ -1,11 +1,10 @@
 /** @jsxImportSource @opentui/solid */
 import { createSignal } from "solid-js"
-import { readFileSync, readdirSync } from "node:fs"
+import { readFileSync } from "node:fs"
 import { exec } from "node:child_process"
 import type { TuiPlugin, TuiPluginModule } from "@opencode-ai/plugin/tui"
 
 const REPORT_FILE = `${process.env.HOME}/.config/sandbox-kit/startup-checks.report`
-const SKILLS_DIR = `${process.env.HOME}/.agents/skills`
 const INFRA_SCRIPT = `${process.env.HOME}/.config/sandbox-kit/check-infra.sh`
 
 const runInfra = (): Promise<string> =>
@@ -38,17 +37,6 @@ const readReport = () => {
     return readFileSync(REPORT_FILE, "utf8").trim()
   } catch (e) {
     return ""
-  }
-}
-
-const readSkills = () => {
-  try {
-    return readdirSync(SKILLS_DIR, { withFileTypes: true })
-      .filter((d) => d.isDirectory() && readdirSync(`${SKILLS_DIR}/${d.name}`).includes("SKILL.md"))
-      .map((d) => d.name)
-      .sort()
-  } catch (e) {
-    return []
   }
 }
 
@@ -99,44 +87,6 @@ const tui: TuiPlugin = async (api) => {
             ) : (
               <text fg={skin.muted}>running…</text>
             )}
-          </box>
-        )
-      },
-    },
-  })
-
-  api.slots.register({
-    order: 155,
-    slots: {
-      sidebar_content(ctx, props) {
-        const skin = look(ctx.theme.current)
-        const [skills, setSkills] = createSignal(readSkills())
-
-        const timer = setInterval(() => {
-          const next = readSkills()
-          if (next.join(",") !== skills().join(",")) setSkills(next)
-        }, 5000)
-
-        api.lifecycle.onDispose(() => clearInterval(timer))
-
-        return (
-          <box
-            border
-            borderColor={skin.border}
-            backgroundColor={skin.panel}
-            paddingTop={1}
-            paddingBottom={1}
-            paddingLeft={2}
-            paddingRight={2}
-            flexDirection="column"
-            gap={1}
-          >
-            <text fg={skin.accent}>
-              <b>Skills</b>
-            </text>
-            <text fg={skills().length ? skin.text : skin.muted}>
-              {skills().length ? skills().join("\n") : "none installed"}
-            </text>
           </box>
         )
       },

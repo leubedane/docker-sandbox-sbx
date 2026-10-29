@@ -70,11 +70,4 @@ else
   report="$report helm:FAIL"
 fi
 
-# 8. Skills
-if skills ls -g >/dev/null 2>&1; then
-  report="$report skills:OK"
-else
-  report="$report skills:FAIL"
-fi
-
 echo "[startup-checks]$report"

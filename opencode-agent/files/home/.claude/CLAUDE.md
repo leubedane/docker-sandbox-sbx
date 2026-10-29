@@ -105,19 +105,6 @@ Connected via `host.docker.internal:64342/sse`; tools prefixed with `idea_` (sym
 
 Docs-as-a-service CLI; see the `<!-- context7 -->` section above. Authenticated via `CONTEXT7_API_KEY` (placeholder `proxy-managed`, replaced by the proxy on requests to `context7.com`) — never shows the real key.
 
-## Skills CLI
-
-`skills` (vercel-labs) manages reusable agent skills in `~/.agents/skills/` (auto-loaded):
-- `skills ls` / `skills ls -g` — list installed skills
-- `skills add <package>` — add a skill package (e.g. `skills add -g https://github.com/dboeckli/ai-agent-skills.git`)
-- `skills remove [skills]` / `skills update` — remove / update skills
-
-Installed skills (from [dboeckli/ai-agent-skills](https://github.com/dboeckli/ai-agent-skills)):
-- **camel-matrix** — Camel/Spring Boot/CXF compatibility matrix via `camel-springboot-matrix.sh`
-- **cc-best-practices** — effective Claude Code usage
-- **project-references** — conventions from `~/projects/referenzen/`
-- **skill-best-practices** — structuring SKILL.md files
-
 ## Java / Maven
 
 - JDK (Liberica) 25 at `/usr/local/java` (`JAVA_HOME` set), `java`, `javac`
@@ -186,5 +173,5 @@ The list is enforced by the sandbox proxy (`mcp-gateway`, the "mcp-gateway Conne
 
 ## Startup checks
 
-A SessionStart hook runs the sandbox checks and passes a `[startup-checks] ...` report (Context7, IntelliJ MCP, gh, Java/Maven, Docker, kubectl, helm, skills) as a system message at the start of the session. When you receive it, briefly confirm the tooling status in your first reply and continue. If any check reports FAIL, mention it and suggest a fix. Do not re-run the checks yourself.
+A SessionStart hook runs the sandbox checks and passes a `[startup-checks] ...` report (Context7, IntelliJ MCP, gh, Java/Maven, Docker, kubectl, helm) as a system message at the start of the session. When you receive it, briefly confirm the tooling status in your first reply and continue. If any check reports FAIL, mention it and suggest a fix. Do not re-run the checks yourself.
 <!-- sandbox-tools -->

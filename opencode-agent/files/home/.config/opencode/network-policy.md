@@ -19,7 +19,6 @@ for GitHub, `npm` against `registry.npmjs.org`, `docker pull` against `docker.io
 - **Liberica JDK**: `api.bell-sw.com` (Renovate Versions-API)
 - **Ubuntu apt (http, Port 80)**: `archive.ubuntu.com`, `security.ubuntu.com`, `ports.ubuntu.com` (arm64)
 - **MongoDB**: `repo.mongodb.org` (apt im Helm-Test-Pod)
-- **Skills CLI**: `add-skill.vercel.sh`
 - **Web search (last resort)**: `*.exa.ai`
 - **Stack Overflow API**: `api.stackexchange.com` (Fallback-Quelle bei spezifischen Fehlermeldungen)
 - **IntelliJ MCP (Windows host)**: `localhost:64342`, `127.0.0.1:64342`, `host.docker.internal:64342`
