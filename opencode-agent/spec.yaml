@@ -82,6 +82,8 @@ permissions:
     # Python / PyPI
     - pypi.org
     - files.pythonhosted.org
+    # Telegram Bot API (token in URL path: /bot<token>/METHOD, file download /file/bot<token>/...)
+    - api.telegram.org
     # Web search (last resort, allow-list for websearch/webfetch provider)
     - "*.exa.ai"
     - playwright.download.prss.microsoft.com
